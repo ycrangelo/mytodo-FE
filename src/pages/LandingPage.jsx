@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
@@ -16,19 +16,21 @@ const LandingPage = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              {/* <a
                 className="block w-full rounded bg-[#53b08f] px-12 py-3 text-sm font-medium text-[#fbfdfc] shadow hover:bg-[#6bd8b1] focus:outline-none focus:ring active:bg-[#53b08f] sm:w-auto"
-                href="/get-started"
+               
               >
-                Sign Up
-              </a>
+               <Link to='/signup'>Sign up</Link>
+              </a> */}
 
-              <a
+              <Link to='/signup'  className="block w-full rounded bg-[#53b08f] px-12 py-3 text-sm font-medium text-[#fbfdfc] shadow hover:bg-[#6bd8b1] focus:outline-none focus:ring active:bg-[#53b08f] sm:w-auto">Sign up</Link>
+              {/* <a
                 className="block w-full rounded px-12 py-3 text-sm font-medium text-[#53b08f] shadow hover:text-[#6bd8b1] focus:outline-none focus:ring active:text-[#53b08f] sm:w-auto"
                 href="/about"
               >
-                Login!
-              </a>
+                Login
+              </a> */}
+            <Link to='/login' className="block w-full rounded px-12 py-3 text-sm font-medium text-[#53b08f] shadow hover:text-[#6bd8b1] focus:outline-none focus:ring active:text-[#53b08f] sm:w-auto">Login</Link>
             </div>
           </div>
         </div>

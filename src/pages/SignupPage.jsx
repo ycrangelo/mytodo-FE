@@ -1,6 +1,6 @@
 
 
-const LoginPage = () => {
+const SignupPage = () => {
     return (
         <>
             <div className="min-h-screen bg-[#fbfdfc] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -90,4 +90,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default SignupPage
