@@ -6,12 +6,12 @@ import { useEffect } from "react"
 const LoginPage = () => {
     const [email, setemail] = useState('')
     const [password, setPassword] = useState('')
-    const [res,setRes] = useState([])
+     const [res,setRes] = useState([])
 
     const signupUsername = async () => {
         try {
             const response = await axios.post(
-                'https://todolist-lbt3.onrender.com/api/user/register',
+                'https://todolist-lbt3.onrender.com/api/user/login',
                 {
                     email: email,
                     password: password,
@@ -25,14 +25,16 @@ const LoginPage = () => {
             );
 
             console.log(response);
+            setRes(response)
              console.log('hello');
         } catch (error) {
             console.error(error);
         }
     }
 
-    const handlesignupUserName = () => {
-         console.log('hello121');
+    const handlesignupUserName = (e) => {
+        console.log(e.preventDefault())
+        console.log('hello121');
         signupUsername()
         
     }
@@ -56,9 +58,9 @@ const LoginPage = () => {
     // }
     useEffect(() => {
        
-       handlesignupUserName()
+        signupUsername()
         
-    }, [handlesignupUserName])
+    }, [])
     // useEffect(() => {
        
     //     handlesignupDC()
@@ -77,7 +79,8 @@ const LoginPage = () => {
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md " id="containerLogin">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6"onClick={ handlesignupUserName()}>
+                        <form className="space-y-6" onSubmit={(e) => handlesignupUserName(e)}
+>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                     Username
