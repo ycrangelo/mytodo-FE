@@ -1,6 +1,75 @@
-
+import { useState } from "react"
+import { useEffect } from "react"
+import axios from "axios"
 
 const SignupPage = () => {
+
+      const [email, setemail] = useState('')
+    const [password, setPassword] = useState('')
+     const [res,setRes] = useState([])
+    //  const navigate = useNavigate();
+
+    const signUpPage = async () => {
+        try {
+            const response = await axios.post(
+                'https://todolist-lbt3.onrender.com/api/user/register',
+                {
+                    email: email,
+                    password: password,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                       
+                    },
+                }
+            )
+
+            console.log(response);
+           
+            setRes(response)
+            console.log('hello');
+            // if (response.data.status === "ok") {
+            //      console.log(response.data.status);
+            //     // Redirect to the '/Todolist' route upon successful login
+            //     navigate.push('/Todolist');
+            // }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handleSignupPage = async (e) => {
+        e.preventDefault()
+        console.log('signup');
+        setemail('')
+        setPassword('')
+        await signUpPage()
+        
+    }
+    // const signupDc = () => {
+    //     axios
+    //         .get(`https://todolist-lbt3.onrender.com/api/user/discord`)
+    //         .then((response) => {
+    //             const data = response.data;
+    //             if (Array.isArray(data) && data.length > 0) {
+    //                 setRes(data)
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error fetching data:', error);
+    //         });
+    // }
+
+    // const handlesignupDC = (e) => {
+    //     console.log(e.preventDefault())
+    //     signupDc()
+    // }
+    useEffect(() => {
+       
+        signUpPage()
+        
+    }, [])
 
     
     return (
@@ -15,13 +84,13 @@ const SignupPage = () => {
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md " id="containerLogin">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6" action="#" method="POST">
+                        <form className="space-y-6" onSubmit={(e)=>handleSignupPage(e)}>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                     Username
                                 </label>
                                 <div className="mt-1">
-                                    <input id="text" name="text" type="text" autoComplete="text" required
+                                    <input  value={email} onChange={(e) => setemail(e.target.value)} id="text" name="text" type="text" autoComplete="text" required
                                         className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                         placeholder="Enter your username" />
                                 </div>
@@ -32,7 +101,7 @@ const SignupPage = () => {
                                     Password
                                 </label>
                                 <div className="mt-1">
-                                    <input id="password" name="password" type="password" autoComplete="current-password" required
+                                    <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" type="password" autoComplete="current-password" required
                                         className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                         placeholder="Enter your password" />
                                 </div>
@@ -62,7 +131,7 @@ const SignupPage = () => {
                             </div>
 
                             <div className="mt-6 grid grid-cols-3 gap-3">
-                                <div>
+                                {/* <div>
                                     <a href="#"
                                         className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
                                         <img className="h-5 w-5" src="https://www.svgrepo.com/show/512120/facebook-176.svg"
@@ -82,7 +151,7 @@ const SignupPage = () => {
                                         <img className="h-6 w-6" src="https://www.svgrepo.com/show/506498/google.svg"
                                             alt="" />
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

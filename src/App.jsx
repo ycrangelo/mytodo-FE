@@ -5,6 +5,7 @@ import './App.css'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import Todolist from './pages/Todolist'
+import Footer from './pages/Footer'
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
   return (
     <>
       <Router>
-        <AppRoutes/>
+        <AppRoutes />
+        <Footer/>
       </Router>
     </>
   )
