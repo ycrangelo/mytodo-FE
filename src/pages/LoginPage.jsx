@@ -79,7 +79,7 @@ const LoginPage = () => {
         <>
             <div className="min-h-screen bg-[#fbfdfc] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                    <h2 className="mt-6 text-center text-4xl font-extrabold text-[#060908]">
+                    <h2 className="mt-6 text-center text-4xl font-extrabold text-[#07130e]">
                         Welcome back!
                     </h2>
     

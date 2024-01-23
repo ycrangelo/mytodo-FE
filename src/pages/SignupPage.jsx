@@ -7,6 +7,7 @@ const SignupPage = () => {
       const [email, setemail] = useState('')
     const [password, setPassword] = useState('')
      const [res,setRes] = useState([])
+    //  const [status,setStats] = useState([])
     //  const navigate = useNavigate();
 
     const signUpPage = async () => {
@@ -20,20 +21,11 @@ const SignupPage = () => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                       
                     },
                 }
-            )
+            );
 
-            console.log(response);
-           
-            setRes(response)
-            console.log('hello');
-            // if (response.data.status === "ok") {
-            //      console.log(response.data.status);
-            //     // Redirect to the '/Todolist' route upon successful login
-            //     navigate.push('/Todolist');
-            // }
+            setRes(response);
         } catch (error) {
             console.error(error);
         }
@@ -45,6 +37,7 @@ const SignupPage = () => {
         setemail('')
         setPassword('')
         await signUpPage()
+        console.log(res);
         
     }
     // const signupDc = () => {
@@ -76,7 +69,7 @@ const SignupPage = () => {
         <>
             <div className="min-h-screen bg-[#fbfdfc] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                    <h2 className="mt-6 text-center text-4xl font-extrabold text-[#060908]">
+                    <h2 className="mt-6 text-center text-4xl font-extrabold text-[#07130e]">
                         Create a new account
                     </h2>
     

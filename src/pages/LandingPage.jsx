@@ -6,7 +6,7 @@ const LandingPage = () => {
       <section className="bg-[#fbfdfc]">
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
           <div className="mx-auto max-w-xl text-center">
-            <h1 className="text-6xl text-[#060908] font-black sm:text-7xl">
+            <h1 className="text-6xl text-[#07130e] font-black sm:text-7xl">
               TWINKLIN
             </h1>
             <h2 className="text-3xl font-black text-[#53b08f] sm:block">Simplify Your Day </h2>

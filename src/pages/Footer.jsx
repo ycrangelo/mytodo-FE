@@ -4,7 +4,7 @@ const Footer = () => {
   return (
    <>
      <footer>
-        <div className="flex flex-row p-4 absolute bottom-0 bg-[#fbfdfc] w-full justify-between" id="footerCContaioner">
+        <div className="flex flex-row p-4 absolute bottom-auto bg-[#fbfdfc] w-full justify-between" id="footerCContaioner">
             <div className="">
               <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4  sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© Yocor,Angelo —
                 <a target='_blank' rel='noreferrer'  href="https://github.com/Angelo-misuhara" className="text-gray-600 ml-1" >Misuhara</a>
