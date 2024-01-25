@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { useEffect } from "react"
-import { Link,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
@@ -25,13 +25,15 @@ const LoginPage = () => {
                     },
                 }
             )
-            console.log('before response');
-            console.log(response.status);
+            // Update state using setRes
+        setRes(response);
+        console.log('before response');
+        console.log(response.status);
             if (response.status === 200) {
                 console.log('inside if statement');
-                console.log(response);
+                console.log(res);
                 //Redirect to the '/Todolist' route upon successful login
-                navigate.push('/Todolist');
+           navigate('/Todolist');
             }
         } catch (error) {
             console.error(error);
@@ -39,13 +41,11 @@ const LoginPage = () => {
     }
 
     const handleloginPage = async (e) => {
-        e.preventDefault()
-        console.log('hello121');
-        setemail('')
-        setPassword('')
-        await loginPage()
-        
-    }
+    e.preventDefault();
+    console.log('hello121');
+    await loginPage();
+    console.log(res);
+};
     // const signupDc = () => {
     //     axios
     //         .get(`https://todolist-lbt3.onrender.com/api/user/discord`)
@@ -68,7 +68,7 @@ const LoginPage = () => {
        
         loginPage()
         
-    },)
+    },[])
     //  useEffect(() => {
        
     //     signupDc()
@@ -117,8 +117,8 @@ const LoginPage = () => {
                                 <button type="submit"
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-[#fbfdfc] bg-[#53b08f] hover:bg-[#6bd8b1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#53b08f]">
 
-                                    
-                                  <Link to='/Todolist'> Login</Link>
+                                    Login
+                                  {/* <Link to='/Todolist'> Login</Link> */}
                                 </button>
                             </div>
                         </form>

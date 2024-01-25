@@ -1,12 +1,14 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
 
       const [email, setemail] = useState('')
     const [password, setPassword] = useState('')
-     const [res,setRes] = useState([])
+    const [res, setRes] = useState([])
+    const navigate = useNavigate()
     //  const [status,setStats] = useState([])
     //  const navigate = useNavigate();
 
@@ -25,7 +27,14 @@ const SignupPage = () => {
                 }
             );
 
-            setRes(response);
+            await setRes(response);
+            console.log(res.status);
+            if (response.status === 201) {
+                console.log('inside if statement');
+                console.log(res);
+                //Redirect to the '/Todolist' route upon successful login
+           navigate('/Todolist');
+            }
         } catch (error) {
             console.error(error);
         }
@@ -37,7 +46,7 @@ const SignupPage = () => {
         setemail('')
         setPassword('')
         await signUpPage()
-        console.log(res);
+        await console.log(res);
         
     }
     // const signupDc = () => {
