@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import axios from "axios"
 import { UserContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
@@ -30,19 +30,24 @@ const LoginPage = () => {
                 }
             )
             // Update state using setRes
-        setRes(response);
-        console.log('before response');
+        await setRes(response);
+            console.log('before response');
+             console.log(response);
+            
             console.log(response.status);
-        
-            if (response.status === 200) {
+              if (response.status === 200) {
                 console.log('inside if statement');
-                console.log(response);
                 setLogin(true)
                 setIsOK(true)
                 setUsername(response.data.user.email)
                 //Redirect to the '/Todolist' route upon successful login
            navigate('/Todolist');
-            }
+  
+        } if(!response) {
+              setLogerr(true)
+}
+        
+         
         } catch (error) {
             console.error(error);
         }
@@ -52,11 +57,11 @@ const LoginPage = () => {
     e.preventDefault();
     console.log('hello121');
     await loginPage();
-        console.log(res);
-           if (res.length === 0) {
-    setLogerr(true)
-}
-};
+      
+    };
+    
+
+
     // const signupDc = () => {
     //     axios
     //         .get(`https://todolist-lbt3.onrender.com/api/user/discord`)
