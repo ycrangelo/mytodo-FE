@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState,useContext } from "react"
 import { useEffect } from "react"
 import axios from "axios"
+import { UserContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
@@ -9,13 +10,16 @@ const SignupPage = () => {
     const [password, setPassword] = useState('')
     const [res, setRes] = useState([])
     const navigate = useNavigate()
+    const {setUsername,setLogin,setIsOK} = useContext(UserContext)
+
+  
     //  const [status,setStats] = useState([])
     //  const navigate = useNavigate();
 
     const signUpPage = async () => {
         try {
             const response = await axios.post(
-                'https://todolist-lbt3.onrender.com/api/user/register',
+                'https://tasty-sunbonnet-goat.cyclic.app/api/user/register',
                 {
                     email: email,
                     password: password,
@@ -32,8 +36,12 @@ const SignupPage = () => {
             if (response.status === 201) {
                 console.log('inside if statement');
                 console.log(res);
+                setLogin(true)
+                setUsername(email)
+                setIsOK(true)
                 //Redirect to the '/Todolist' route upon successful login
-           navigate('/Todolist');
+                navigate('/Todolist');
+                
             }
         } catch (error) {
             console.error(error);
@@ -42,10 +50,10 @@ const SignupPage = () => {
 
     const handleSignupPage = async (e) => {
         e.preventDefault()
+         await signUpPage()
         console.log('signup');
         setemail('')
         setPassword('')
-        await signUpPage()
         await console.log(res);
         
     }
@@ -67,11 +75,7 @@ const SignupPage = () => {
     //     console.log(e.preventDefault())
     //     signupDc()
     // }
-    useEffect(() => {
-       
-        signUpPage()
-        
-    }, [])
+  
 
     
     return (

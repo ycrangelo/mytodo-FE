@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import axios from "axios"
-import { useEffect } from "react"
+import { UserContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
 
 
@@ -10,10 +10,14 @@ const LoginPage = () => {
      const [res,setRes] = useState([])
     const navigate = useNavigate();
 
+    const {setUsername,setLogin,setIsOK,setLogerr} = useContext(UserContext)
+
+
+
     const loginPage = async () => {
         try {
             const response = await axios.post(
-                'https://todolist-lbt3.onrender.com/api/user/login',
+                'https://tasty-sunbonnet-goat.cyclic.app/api/user/login',
                 {
                     email: email,
                     password: password,
@@ -28,10 +32,14 @@ const LoginPage = () => {
             // Update state using setRes
         setRes(response);
         console.log('before response');
-        console.log(response.status);
+            console.log(response.status);
+        
             if (response.status === 200) {
                 console.log('inside if statement');
-                console.log(res);
+                console.log(response);
+                setLogin(true)
+                setIsOK(true)
+                setUsername(response.data.user.email)
                 //Redirect to the '/Todolist' route upon successful login
            navigate('/Todolist');
             }
@@ -44,7 +52,10 @@ const LoginPage = () => {
     e.preventDefault();
     console.log('hello121');
     await loginPage();
-    console.log(res);
+        console.log(res);
+           if (res.length === 0) {
+    setLogerr(true)
+}
 };
     // const signupDc = () => {
     //     axios
@@ -64,11 +75,7 @@ const LoginPage = () => {
     //     console.log(e.preventDefault())
     //     signupDc()
     // }
-    useEffect(() => {
-       
-        loginPage()
-        
-    },[])
+ 
     //  useEffect(() => {
        
     //     signupDc()
@@ -118,6 +125,7 @@ const LoginPage = () => {
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-[#fbfdfc] bg-[#53b08f] hover:bg-[#6bd8b1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#53b08f]">
 
                                     Login
+                                
                                   {/* <Link to='/Todolist'> Login</Link> */}
                                 </button>
                             </div>
@@ -142,7 +150,6 @@ const LoginPage = () => {
                                             onClick={(e)=>handlesignupDC(e)}
                                             src="/public/img/discord.png"
                                             alt="Description of the image"
-                                           
                                         />
                                     </a>
                                 </div> */}

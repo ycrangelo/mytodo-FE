@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SideBar from "./SideBar";
+import { UserContext } from "./UserContext";
 import Add from "./Add";
+import LoginFirst from "./LoginFirst";
 
 const Todolist = () => {
    // State to hold the greeting and current time
@@ -8,6 +10,8 @@ const Todolist = () => {
    const [currentTime, setCurrentTime] = useState(getFormattedTime());
    const [imageSrc, setImageSrc] = useState('img/add.png');
    const [isOpenAdd, setOpenAdd] = useState(false)
+
+   const { username,isLogin } = useContext(UserContext)
 
    const handleMouseOver = () => {
       setImageSrc('img/add2.png');
@@ -52,7 +56,9 @@ const Todolist = () => {
 
    return (
       <>
-         <div className="px-11 h-auto">
+         {isLogin ? (
+            <>
+                <div className="px-11 h-auto">
             <SideBar />
             <div className="flex flex-col">
                <div className=" flex justify-end pb-9">
@@ -174,9 +180,12 @@ const Todolist = () => {
             onMouseOut={handleMouseOut}
          >
             <img src={imageSrc} alt="" onClick={handleOpenAdd} />
-         </div>
+               </div>
+               {isOpenAdd && <Add />}
+            </>
 
-         {isOpenAdd && <Add />}
+         
+        ): <LoginFirst/>}
         
       </>
    );
