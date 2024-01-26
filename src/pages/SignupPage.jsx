@@ -10,7 +10,7 @@ const SignupPage = () => {
     const [password, setPassword] = useState('')
     const [res, setRes] = useState([])
     const navigate = useNavigate()
-    const {setUsername,setLogin,setIsOK} = useContext(UserContext)
+    const {setUsername,setLogin,setIsOK,setLogerr} = useContext(UserContext)
 
   
     //  const [status,setStats] = useState([])
@@ -45,10 +45,13 @@ const SignupPage = () => {
             }
         } catch (error) {
             console.error(error);
+             setLogerr(true)
         }
     }
 
     const handleSignupPage = async (e) => {
+      
+          setLogerr([])
         e.preventDefault()
          await signUpPage()
         console.log('signup');

@@ -7,10 +7,9 @@ import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
     const [email, setemail] = useState('')
     const [password, setPassword] = useState('')
-     const [res,setRes] = useState([])
     const navigate = useNavigate();
 
-    const {setUsername,setLogin,setIsOK,setLogerr} = useContext(UserContext)
+    const {setUsername,setLogin,setIsOK,setLogerr,res,setres} = useContext(UserContext)
 
 
 
@@ -30,33 +29,36 @@ const LoginPage = () => {
                 }
             )
             // Update state using setRes
-        await setRes(response);
+       
             console.log('before response');
              console.log(response);
             
             console.log(response.status);
-              if (response.status === 200) {
+            if (response.status === 200) {
                 console.log('inside if statement');
                 setLogin(true)
                 setIsOK(true)
+               await setres(response);
                 setUsername(response.data.user.email)
                 //Redirect to the '/Todolist' route upon successful login
-           navigate('/Todolist');
+                navigate('/Todolist');
   
-        } if(!response) {
-              setLogerr(true)
-}
+            } else {
+                setres([]);
+            }
         
          
         } catch (error) {
             console.error(error);
+             setLogerr(true)
         }
     }
 
     const handleloginPage = async (e) => {
-    e.preventDefault();
+        e.preventDefault();
+       setres([]);
     console.log('hello121');
-    await loginPage();
+        await loginPage();
       
     };
     

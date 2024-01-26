@@ -11,7 +11,9 @@ function App() {
   const [username, setUsername] = useState('')
   const [dateCreated, setDateCreated] = useState('')
   const [isOK, setIsOK] = useState(false)
-  const [logErr,setLogerr] = useState(false)
+  const [logErr, setLogerr] = useState(false)
+    const [res,setres] = useState([])
+
   
   const handlesetOk = () => {
     setIsOK(false)
@@ -23,6 +25,7 @@ function App() {
 
   console.log(isLogin)
   console.log(username)
+  console.log(res)
   return (
     <>
       {isOK && <div className='flex justify-center'>
@@ -93,7 +96,7 @@ function App() {
           
 </div></div>}
       <Router>
-        <UserContext.Provider value={{setLogerr, username, setUsername, isLogin, setLogin,dateCreated,setDateCreated,isOK,setIsOK }}>
+        <UserContext.Provider value={{res,setres,setLogerr, username, setUsername, isLogin, setLogin,dateCreated,setDateCreated,isOK,setIsOK }}>
          <AppRoutes />
           {/* <Footer/> */}
         </UserContext.Provider>

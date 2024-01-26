@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const SideBar = () => {
        const navigate = useNavigate();
-      const { username,setLogin,setUsername,setDateCreated } = useContext(UserContext)
+      const { username,setLogin,setUsername,setDateCreated,setres } = useContext(UserContext)
   const [isOpen, setOpen] = useState(false);
   const sidebarRef = useRef(null);
 
@@ -23,6 +23,7 @@ const SideBar = () => {
       setUsername('')
       setDateCreated('')
       navigate('/');
+      setres([])
     
    }
    
