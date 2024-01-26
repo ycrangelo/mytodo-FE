@@ -41,7 +41,7 @@ const SideBar = () => {
             onClick={handleIsOpen}
             aria-controls="default-sidebar"
             type="button"
-            className="sticky top-0 inline-flex items-center p-2 mt-2 text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:focus:ring-gray-600"
+            className="sticky top-0 inline-flex items-center p-2 mt-2 text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  "
          >
             <span className="sr-only">Open sidebar</span>
             <svg
@@ -63,7 +63,7 @@ const SideBar = () => {
             id="default-sidebar"
             className="fixed top-0 left-0 z-40 w-64 h-screen translate-x-0 "
             aria-label="Sidebar">
-            <div className="h-full px-3 py-4 overflow-y-auto bg-[#f9fdfb] dark:bg-gray-800">
+            <div className="h-full px-3 py-4 overflow-y-auto bg-[#f9fdfb] ">
                <ul className="space-y-2 font-medium">
                   <li className="flex items-center p-2 text-gray-900 rounded-lg   group">
            

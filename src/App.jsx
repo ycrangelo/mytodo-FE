@@ -12,7 +12,8 @@ function App() {
   const [dateCreated, setDateCreated] = useState('')
   const [isOK, setIsOK] = useState(false)
   const [logErr, setLogerr] = useState(false)
-    const [res,setres] = useState([])
+  const [res, setres] = useState([])
+     const [isOpenAdd, setOpenAdd] = useState(false)
 
   
   const handlesetOk = () => {
@@ -22,14 +23,18 @@ function App() {
     setLogerr(false)
   }
   
-
+  console.log('login in?:')
   console.log(isLogin)
+  console.log('username:')
   console.log(username)
+    console.log('res:')
   console.log(res)
+      console.log('opened?:')
+    console.log(isOpenAdd)
   return (
     <>
       {isOK && <div className='flex justify-center'>
-        <div role="alert" className="fixed  top-0  z-40 lg:w-[50%]  rounded-xl border border-gray-100 bg-white p-4">
+        <div role="alert" className="fixed mt-6  top-0  z-40 lg:w-[50%]  rounded-xl border border-gray-100 bg-white p-4">
   <div className="flex items-start gap-4">
     <span className="text-green-600">
       <svg
@@ -70,7 +75,7 @@ function App() {
   </div>
 </div>
       </div>}
-      {logErr && <div className='flex justify-center'><div role="alert" className="fixed  top-0  z-40 lg:w-[50%] rounded border-s-4 border-red-500 bg-red-50 p-4">
+      {logErr && <div className='flex justify-center'><div role="alert" className="fixed mt-6  top-0  z-40 lg:w-[50%] rounded border-s-4 border-red-500 bg-red-50 p-4">
         <div className='flex flex-row justify-between'>
            <strong className="block font-medium text-red-800"> Something went wrong </strong>
            <button onClick={handleseterr} className="text-gray-500 transition hover:text-gray-600">
@@ -96,7 +101,7 @@ function App() {
           
 </div></div>}
       <Router>
-        <UserContext.Provider value={{res,setres,setLogerr, username, setUsername, isLogin, setLogin,dateCreated,setDateCreated,isOK,setIsOK }}>
+        <UserContext.Provider value={{isOpenAdd, setOpenAdd,res,setres,setLogerr, username, setUsername, isLogin, setLogin,dateCreated,setDateCreated,isOK,setIsOK }}>
          <AppRoutes />
           {/* <Footer/> */}
         </UserContext.Provider>
