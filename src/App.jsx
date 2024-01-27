@@ -13,7 +13,9 @@ function App() {
   const [isOK, setIsOK] = useState(false)
   const [logErr, setLogerr] = useState(false)
   const [res, setres] = useState([])
-     const [isOpenAdd, setOpenAdd] = useState(false)
+  const [isOpenAdd, setOpenAdd] = useState(false)
+      const [successfulAdd, setSuccessfullAdd] = useState(false)
+  
 
   
   const handlesetOk = () => {
@@ -22,6 +24,8 @@ function App() {
   const handleseterr = () => {
     setLogerr(false)
   }
+
+  
   
   console.log('login in?:')
   console.log(isLogin)
@@ -30,9 +34,13 @@ function App() {
     console.log('res:')
   console.log(res)
       console.log('opened?:')
-    console.log(isOpenAdd)
+  console.log(isOpenAdd)
+  console.log('successfulAdd?:')
+  
+    
   return (
     <>
+      
       {isOK && <div className='flex justify-center'>
         <div role="alert" className="fixed mt-6  top-0  z-40 lg:w-[50%]  rounded-xl border border-gray-100 bg-white p-4">
   <div className="flex items-start gap-4">
@@ -99,9 +107,10 @@ function App() {
    Incorrect username or password. please try again.
         </p>
           
-</div></div>}
+      </div></div>}
+      
       <Router>
-        <UserContext.Provider value={{isOpenAdd, setOpenAdd,res,setres,setLogerr, username, setUsername, isLogin, setLogin,dateCreated,setDateCreated,isOK,setIsOK }}>
+        <UserContext.Provider value={{successfulAdd, setSuccessfullAdd,isOpenAdd, setOpenAdd,res,setres,setLogerr, username, setUsername, isLogin, setLogin,dateCreated,setDateCreated,isOK,setIsOK }}>
          <AppRoutes />
           {/* <Footer/> */}
         </UserContext.Provider>
