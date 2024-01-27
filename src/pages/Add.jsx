@@ -43,7 +43,7 @@ const Add = () => {
             }
              
            
-            console.log('Response:', response.status);
+          
           
                 
         } catch (error) {

@@ -27,15 +27,6 @@ function App() {
 
   
   
-  console.log('login in?:')
-  console.log(isLogin)
-  console.log('username:')
-  console.log(username)
-    console.log('res:')
-  console.log(res)
-      console.log('opened?:')
-  console.log(isOpenAdd)
-  console.log('successfulAdd?:')
   
     
   return (

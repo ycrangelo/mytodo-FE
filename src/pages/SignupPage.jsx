@@ -38,10 +38,9 @@ const SignupPage = () => {
             );
 
             await setRes(response);
-            console.log(res.status);
+           
             if (response.status === 201) {
-                console.log('inside if statement');
-                console.log(res);
+               
                 setLogin(true)
                  handledisLoading()
                 setUsername(email)
@@ -64,10 +63,10 @@ const SignupPage = () => {
         e.preventDefault()
          handleLoading()
          await signUpPage()
-        console.log('signup');
+       
         setemail('')
         setPassword('')
-        await console.log(res);
+       
         
     }
     // const signupDc = () => {

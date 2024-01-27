@@ -37,12 +37,11 @@ const LoginPage = () => {
             )
             // Update state using setRes
        
-            console.log('before response');
-             console.log(response);
+            
             
             console.log(response.status);
             if (response.status === 200) {
-                console.log('inside if statement');
+              
                 setLogin(true)
                 setIsOK(true)
                 handledisLoading()
@@ -68,7 +67,6 @@ const LoginPage = () => {
         e.preventDefault();
         setres([]);
         handleLoading()
-    console.log('hello121');
         await loginPage();
       
     };

@@ -60,7 +60,6 @@ const Todolist = () => {
       console.error('Error deleting todo:', error);
     }
    };
-   console.log('this is the list',todoRes)
    return (
       <>
          {isdelete && <div className="flex justify-center">
