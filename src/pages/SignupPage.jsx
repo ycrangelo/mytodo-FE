@@ -25,7 +25,7 @@ const SignupPage = () => {
     const signUpPage = async () => {
         try {
             const response = await axios.post(
-                'https://tasty-sunbonnet-goat.cyclic.app/api/user/register',
+                'https://todolist-lbt3.onrender.com/api/user/register',
                 {
                     email: email,
                     password: password,

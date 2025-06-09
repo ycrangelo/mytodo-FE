@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react'
+import axios from "axios";
+import { useContext, useState } from 'react';
 import { UserContext } from "./UserContext";
-import axios from "axios"
 
 const Add = () => {
     const { username, setOpenAdd, setSuccessfullAdd } = useContext(UserContext)
@@ -28,7 +28,7 @@ const Add = () => {
     const addTodos = async () => {
         try {
             // Make the POST request using Axios
-            const response = await axios.post('https://tasty-sunbonnet-goat.cyclic.app/api/todos/post/userTodos', {
+            const response = await axios.post('https://todolist-lbt3.onrender.com/api/todos/post/userTodos', {
                 userID: username,
                 title: title,
                 todo: todo

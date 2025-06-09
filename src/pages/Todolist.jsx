@@ -14,7 +14,7 @@ const Todolist = () => {
 
   const todosGET = async () => {
     try {
-      const response = await axios.get(`https://tasty-sunbonnet-goat.cyclic.app/api/todos/get/userTodos/${username}`);
+      const response = await axios.get(`https://todolist-lbt3.onrender.com/api/todos/get/userTodos/${username}`);
       setTodores(response.data);
     } catch (error) {
       console.error('Error fetching user todos:', error);
@@ -50,7 +50,7 @@ const Todolist = () => {
   const handleDeleteTodo = async (_id) => {
     try {
       // Replace 'your-api-endpoint' with the actual API endpoint
-      const response = await axios.delete(`https://tasty-sunbonnet-goat.cyclic.app/api/todos/delete/userTodos/${_id}`);
+      const response = await axios.delete(`https://todolist-lbt3.onrender.com/api/todos/delete/userTodos/${_id}`);
       console.log(response.data); // Handle the response if needed
        todosGET();
        if (response) {
